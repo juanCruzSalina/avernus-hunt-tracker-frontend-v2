@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: grid;
   grid-template:
-    [row1-start] 'topbar topbar' 15% [row1-end]
+    [row1-start] 'topbar topbar' 10% [row1-end]
     [row3-start] 'sidebar content' auto [row3-end]
     / 12.5% auto
   ;

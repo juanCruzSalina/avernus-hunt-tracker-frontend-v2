@@ -4,7 +4,6 @@ import { RootState } from '../../app/store';
 import { ILink } from "../../components/atoms/StyledLink/StyledLink";
 import theme from "../../theme/theme";
 
-
 const initialState: ILink[] = [
   {
     icon: faHome,

@@ -7,8 +7,6 @@ export interface IHeading  {
 }
 
 const StyledHeading = styled('h2')<IHeading>`
-  height: 100%;
-  width: 100%;
   font-size: ${props => (props.size === 'l')
                             ? props.theme.fontSizes.xxl
                             : (props.size === 'm')

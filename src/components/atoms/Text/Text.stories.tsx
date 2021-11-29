@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Text from './Text';
 

@@ -7,8 +7,6 @@ export interface IText  {
 }
 
 const StyledText = styled('p')<IText>`
-  height: 100%;
-  width: 100%;
   font-size: ${props => (props.size=== 'l')
                             ? props.theme.fontSizes.l
                             : (props.size === 'm')
