@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import Text from '../../atoms/Text/Text';
-
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { accordionOptions } from '../../../features/accordion/accordionInfoSlice';
+import { setType } from '../../../features/accordion/accordionSlice';
+import AccordionOption from './AccordionOption';
 export interface IAccordion {
-  title: string,
-  options: string[],
+  type: 'gear' | 'trophy' | 'lure' | 'tier',
 }
 
 const AccordionMain = styled.div`
@@ -14,10 +15,6 @@ const AccordionMain = styled.div`
 const AccordionItems = styled.div`
   padding: ${props => props.theme.spacing.xxs} 0 0 ${props => props.theme.spacing.xxs};
 `;
-
-const AccordionOption = styled.div`
-  height: ${props => props.theme.measures.m};
-  `;
 
 const AccordionHeader = styled.div`
   border:  1px solid black;
@@ -29,30 +26,43 @@ const AccordionHeader = styled.div`
 
 const Accordion: React.FC<IAccordion> = (props) => {
 
+  const dispatch = useAppDispatch()
   const [isActive, setIsActive] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('')
+  const [selectedOption, setSelectedOption] = useState('Select an Item...')
+  const { lure, gear, trophy, tier, type } = useAppSelector(accordionOptions)
 
   const toggle = () => {
     setIsActive(!isActive)
   }
 
-  const handleSelect = (option: string) =>{
-    setSelectedOption(option)
-    toggle()
+  const handleSelect = (e: React.MouseEvent<HTMLDivElement>) => {
+    let key = e.currentTarget.getAttribute('name')
+    console.log(key)
+    let value = e.currentTarget.getAttribute('value')
+    dispatch(setType(`{${key}: ${value}}`))
+  }
+
+
+  const conditionalRendering:any = {
+    tier: tier.map((option) => {
+      return (
+        <AccordionOption name={'tier'} value={option} onClick={handleSelect}>
+          {option}
+        </AccordionOption>
+      )})
   }
 
   return (
       <AccordionMain>
-        <AccordionHeader onClick={toggle}>
-          <Text size={'m'}>
-            {selectedOption || props.title}
-          </Text>
+        <AccordionHeader  onClick={toggle} >
+          {selectedOption}
         </AccordionHeader>
-        {isActive && (<AccordionItems>
-          {props.options.map(option =>
-            <AccordionOption onClick={() => handleSelect(option)} >
-              <Text size={'m'}>{option}</Text>
-            </AccordionOption>)}
+        {isActive && (
+          <AccordionItems>
+            <AccordionOption onClick={() => setSelectedOption('Select an Option...')}>
+              Select an Option...
+            </AccordionOption>
+            {conditionalRendering[props.type]}
           </AccordionItems>)}
       </AccordionMain>
   )
