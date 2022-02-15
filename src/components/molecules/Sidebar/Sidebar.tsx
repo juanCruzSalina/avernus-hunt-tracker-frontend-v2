@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
   const items  = useAppSelector(selectMenu)
   return (
     <Wrapper>
-      {items.map(item => <SidebarLink {...item} />
+      {items.map((item, idx) => <SidebarLink key={idx} {...item} />
       )}
     </Wrapper>
   )

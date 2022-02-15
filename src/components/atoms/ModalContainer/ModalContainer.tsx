@@ -21,7 +21,6 @@ const ModalBackground = styled.div<IModal>`
   transition: all .3s ease;
   opacity: ${props => (props.show) ? 1 : 0};
   pointer-events: ${ props => props.show ? 'all' : 'none' };
-
 `;
 
 

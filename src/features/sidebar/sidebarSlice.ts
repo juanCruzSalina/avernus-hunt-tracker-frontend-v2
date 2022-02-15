@@ -8,30 +8,30 @@ const initialState: ILink[] = [
   {
     icon: faHome,
     color: theme.colors.white,
-    hoverColor: theme.colors["grey-600"],
+    hover: theme.colors["grey-600"],
     text: 'Home',
-    linkTo: '/home'
+    path: '/'
   },
   {
     icon: faListAlt,
     color: theme.colors.white,
-    hoverColor: theme.colors["grey-600"],
+    hover: theme.colors["grey-600"],
     text: 'Spreadsheet',
-    linkTo: '/spreadsheet'
+    path: '/donation'
   },
   {
     icon: faReceipt,
     color: theme.colors.white,
-    hoverColor: theme.colors["grey-600"],
+    hover: theme.colors["grey-600"],
     text: 'Awarded',
-    linkTo: '/awarded'
+    path: '/awarded'
   },
   {
     icon: faBookOpen,
     color: theme.colors.white,
-    hoverColor: theme.colors["grey-600"],
+    hover: theme.colors["grey-600"],
     text: 'Wishlist',
-    linkTo: '/wishlist'
+    path: '/wishlist'
   }
 ]
 

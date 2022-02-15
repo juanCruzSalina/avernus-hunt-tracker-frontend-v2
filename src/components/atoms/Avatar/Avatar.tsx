@@ -28,9 +28,10 @@ const StyledAvatar = styled.img<Pick<IAvatar, 'size'>>`
 `
 
 const Avatar: React.FC<IAvatar> = (props) => {
+  const defaultImage = 'https://pbs.twimg.com/media/ElrAGHjX0AE2ema.png'
   return (
     <Wrapper>
-      <StyledAvatar src={props.image} alt={'altAvatar'} size={props.size} />
+      <StyledAvatar src={props.image || defaultImage } alt={'altAvatar'} size={props.size} />
     </Wrapper>
   )
 }

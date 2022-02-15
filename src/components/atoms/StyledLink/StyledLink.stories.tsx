@@ -21,15 +21,15 @@ export const Default = Template.bind({})
 Default.args = {
   icon: faHome,
   color: theme.colors.dark,
-  hoverColor: theme.colors['grey-600'],
-  linkTo: '/home',
+  hover: theme.colors['grey-600'],
+  path: '/home',
   text: 'Home'
 }
 
 export const NoIcon = Template.bind({})
 NoIcon.args ={
   color: theme.colors.dark,
-  hoverColor: theme.colors['grey-600'],
-  linkTo: '/home',
+  hover: theme.colors['grey-600'],
+  path: '/home',
   text: 'Home'
 }

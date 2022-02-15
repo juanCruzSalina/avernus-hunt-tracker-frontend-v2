@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export interface ILink {
   icon?: IconDefinition,
   color: string,
-  hoverColor?: string,
+  hover?: string,
   text: string,
-  linkTo: string
+  path: string
 }
 
 const CustomLink = styled(Link)<ILink>`
@@ -25,7 +25,7 @@ const CustomLink = styled(Link)<ILink>`
   font-size: ${props => props.theme.fontSizes.l};
   transition: all .2s ease;
   &:hover{
-    color: ${(props) => props.hoverColor};
+    color: ${(props) => props.hover};
     transform: translateX(5px);
   }
 `;
@@ -43,10 +43,13 @@ const LinkText = styled.div`
 
 const StyledLink: React.FC<ILink> = (props) => {
   return (
-    <CustomLink to={props.linkTo} {...props}>
-      <LinkIcon>
-        <FontAwesomeIcon icon={props.icon as IconDefinition} />
-      </LinkIcon>
+    <CustomLink to={props.path} {...props}>
+      {props.icon && (
+          <LinkIcon>
+            <FontAwesomeIcon icon={props.icon as IconDefinition} />
+          </LinkIcon>
+        )
+      }
       <LinkText>
         {props.text}
       </LinkText>

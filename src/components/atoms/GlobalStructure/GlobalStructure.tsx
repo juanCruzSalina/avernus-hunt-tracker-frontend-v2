@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template:
     [row1-start] 'topbar topbar' 10% [row1-end]
-    [row3-start] 'sidebar content' auto [row3-end]
+    [row2-start] 'sidebar content' auto [row2-end]
     / 12.5% auto
   ;
 `;
